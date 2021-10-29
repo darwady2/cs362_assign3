@@ -4,7 +4,7 @@ from unittest import TestCase
 from credit_card_validator import credit_card_validator
 
 # How many runs of each test.
-RANGE = 100
+RANGE = 100000
 
 
 class Test(TestCase):
@@ -30,9 +30,10 @@ class Test(TestCase):
             val = str(random.randint(10000000000000000, 99999999999999999))
             credit_card_validator(val)
 
-    def test_16_dig_4052_prefix_tests(self):
+    def test_valid_cc_range(self):
+        # Tests 15 digit CC #s through 16 digit CC #s
         for i in range(0, RANGE):
-            val = str(random.randint(4052000000000000, 4052999999999999))
+            val = str(random.randint(340000000000000, 5599999999999999))
             credit_card_validator(val)
 
 
